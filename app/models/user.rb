@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   validates :fb_id, presence: true, uniqueness: true
   validates :year, presence: true, inclusion: { in: 2012..2015 }
   validates :netid, format: { with: /\A[a-z]{1,8}\z/ }, uniqueness: true
-  validates :club_id, inclusion: { in: 0..10 }, allow_blank: true
-  validates :club_id, inclusion: { in: 0..10 }, allow_blank: true
+  validates :club_id, inclusion: { in: 0..10 }, allow_nil: true
+  validates :admin_id, inclusion: { in: 0..10 }, allow_nil: true
   
 end
 
