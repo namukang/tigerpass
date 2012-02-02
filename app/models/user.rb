@@ -13,16 +13,17 @@
 #
 
 class User < ActiveRecord::Base
+  belongs_to :club
+  belongs_to :club_as_admin, class_name: "Club", foreign_key: "admin_id"
+  has_and_belongs_to_many :events
+
   attr_accessible :netid, :fb_id, :year, :club_id
 
-  validates :fb_id, presence: true
-  validates :year, presence: true, inclusion: { in: [2012..2015] }
-  validates :club_id, inclusion: { in: [0..10] }, allow_blank: true
-  validates :netid, presence: true,  format: { with: netid_regex },
-  uniqueness: true
-  netid_regex = /\A[a-z]{1,8}\z/
-
-  belongs_to :club
-  has_and_belongs_to_many :events
+  validates :fb_id, presence: true, uniqueness: true
+  validates :year, presence: true, inclusion: { in: 2012..2015 }
+  validates :netid, format: { with: /\A[a-z]{1,8}\z/ }, uniqueness: true
+  validates :club_id, inclusion: { in: 0..10 }, allow_blank: true
+  validates :club_id, inclusion: { in: 0..10 }, allow_blank: true
+  
 end
 
