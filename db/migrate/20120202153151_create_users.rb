@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :netid
       t.integer :fb_id
-      t.integer :year_id
+      t.integer :year
       t.integer :club_id
       t.integer :admin_id
 
