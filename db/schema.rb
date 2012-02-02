@@ -11,6 +11,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120202164347) do
+
+  create_table "clubs", :force => true do |t|
+    t.string   "short_name"
+    t.string   "long_name"
+    t.string   "logo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "club_id"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "title"
+    t.text     "description"
+    t.string   "access"
+    t.string   "image_small"
+    t.string   "image_poster"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "events_users", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "events_users", ["event_id"], :name => "index_events_users_on_event_id"
+  add_index "events_users", ["user_id"], :name => "index_events_users_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "netid"
+    t.integer  "fb_id"
+    t.integer  "year_id"
+    t.integer  "club_id"
+    t.integer  "admin_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "users", ["fb_id"], :name => "index_users_on_fb_id"
+  add_index "users", ["netid"], :name => "index_users_on_netid"
+
+  create_table "years", :force => true do |t|
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "years", ["year"], :name => "index_years_on_year"
 
 end
