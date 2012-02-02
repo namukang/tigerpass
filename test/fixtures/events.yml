@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  club_id: 
+  start_time: 
+  end_time: 
+  title: 
+  description: 
+  access: 
+  image_small: 
+  image_poster: MyString
+
+two:
+  club_id: 
+  start_time: 
+  end_time: 
+  title: 
+  description: 
+  access: 
+  image_small: 
+  image_poster: MyString

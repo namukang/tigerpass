@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  netid: MyString
+  fb_id: 1
+  class_id: 1
+  club_id: 1
+
+two:
+  netid: MyString
+  fb_id: 1
+  class_id: 1
+  club_id: 1
