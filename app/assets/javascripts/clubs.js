@@ -1,10 +1,12 @@
+$(function() {
 $('.club').hover(function() {
   // mouse hovers over club
   $('.club').addClass('faded');
   $(this).removeClass('faded');
-}, function() {});
+}, null);
 
-$('#clubLogos').hover(function(){}, function() {
+$('#clubLogos').hover(null, function() {
   // mouse hovers off club list
   $('.club').removeClass('faded');
+});
 });

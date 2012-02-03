@@ -27,15 +27,7 @@
 <!-- <%= link_to 'New Club', new_club_path %> -->
 
 <div id="clubLogos">
-  <div class="club" id="terrace"><a href=""></a></div>
-  <div class="club" id="tower"><a href=""></a></div>
-  <div class="club" id="cannon" ><a href=""></a></div>
-  <div class="club" id="quad" ><a href=""></a></div>
-  <div class="club" id="colonial" ><a href=""></a></div>
-  <div class="club" id="ivy" ><a href=""></a></div>
-  <div class="club" id="tiger" ><a href=""></a></div>
-  <div class="club" id="cottage" ><a href=""></a></div>
-  <div class="club" id="cap" ><a href=""></a></div>
-  <div class="club" id="cloister" ><a href=""></a></div>
-  <div class="club" id="charter" ><a href=""></a></div>
+  <% @clubs.each do |club| %>
+    <div class="club" id="<%= club.short_name.downcase %>"></div>
+  <% end %>
 </div>
