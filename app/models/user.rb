@@ -8,6 +8,7 @@
 #  year       :integer
 #  club_id    :integer
 #  admin_id   :integer
+#  email_auth :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #

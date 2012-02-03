@@ -4,6 +4,7 @@ class CreateClubs < ActiveRecord::Migration
       t.string :short_name
       t.string :long_name
       t.string :logo
+      t.string :permalink
 
       t.timestamps
     end

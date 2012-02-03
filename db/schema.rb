@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120202164347) do
     t.string   "short_name"
     t.string   "long_name"
     t.string   "logo"
+    t.string   "permalink"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120202164347) do
     t.integer  "year"
     t.integer  "club_id"
     t.integer  "admin_id"
+    t.string   "email_auth"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

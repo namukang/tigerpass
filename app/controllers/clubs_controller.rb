@@ -1,6 +1,10 @@
 class ClubsController < ApplicationController
-  # GET /clubs
-  # GET /clubs.json
+  before_filter :get_club, :only=>[:show,:update,:edit,:destroy]
+
+  def get_club
+    @club = Club.find_by_permalink! params[:id]
+  end
+
   def index
     @clubs = Club.all
 
@@ -10,19 +14,13 @@ class ClubsController < ApplicationController
     end
   end
 
-  # GET /clubs/1
-  # GET /clubs/1.json
   def show
-    @club = Club.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @club }
     end
   end
 
-  # GET /clubs/new
-  # GET /clubs/new.json
   def new
     @club = Club.new
 
@@ -32,13 +30,9 @@ class ClubsController < ApplicationController
     end
   end
 
-  # GET /clubs/1/edit
   def edit
-    @club = Club.find(params[:id])
   end
 
-  # POST /clubs
-  # POST /clubs.json
   def create
     @club = Club.new(params[:club])
 
@@ -53,11 +47,7 @@ class ClubsController < ApplicationController
     end
   end
 
-  # PUT /clubs/1
-  # PUT /clubs/1.json
   def update
-    @club = Club.find(params[:id])
-
     respond_to do |format|
       if @club.update_attributes(params[:club])
         format.html { redirect_to @club, notice: 'Club was successfully updated.' }
@@ -69,10 +59,7 @@ class ClubsController < ApplicationController
     end
   end
 
-  # DELETE /clubs/1
-  # DELETE /clubs/1.json
   def destroy
-    @club = Club.find(params[:id])
     @club.destroy
 
     respond_to do |format|

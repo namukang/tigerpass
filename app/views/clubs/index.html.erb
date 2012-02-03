@@ -28,6 +28,8 @@
 
 <div id="clubLogos">
   <% @clubs.each do |club| %>
+    <%= link_to(club) do %>
     <div class="club" id="<%= club.short_name.downcase %>"></div>
+    <% end %>
   <% end %>
 </div>

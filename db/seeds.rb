@@ -8,34 +8,45 @@
 
 Club.create(short_name: 'Terrace',
             long_name: 'Terrace Club',
-            logo: 'terrace.png')
+            logo: 'terrace.png',
+            permalink: 'terrace')
 Club.create(short_name: 'Tower',
             long_name: 'Tower Club',
-            logo: 'tower.png')
+            logo: 'tower.png',
+            permalink: 'tower')
 Club.create(short_name: 'Cannon',
             long_name: 'Cannon Club',
-            logo: 'cannon.png')
+            logo: 'cannon.png',
+            permalink: 'cannon')
 Club.create(short_name: 'Quad',
             long_name: 'Quadrangle Club',
-            logo: 'quad.png')
+            logo: 'quad.png',
+            permalink: 'quad')
 Club.create(short_name: 'Colonial',
             long_name: 'Colonial Club',
-            logo: 'colonial.png')
+            logo: 'colonial.png',
+            permalink: 'colonial')
 Club.create(short_name: 'Ivy',
             long_name: 'Ivy Club',
-            logo: 'ivy.png')
+            logo: 'ivy.png',
+            permalink: 'ivy')
 Club.create(short_name: 'TI',
             long_name: 'Tiger Inn',
-            logo: 'ti.png')
+            logo: 'ti.png',
+            permalink: 'tigerinn')
 Club.create(short_name: 'Cottage',
             long_name: 'Cottage Club',
-            logo: 'cottage.png')
+            logo: 'cottage.png',
+            permalink: 'cottage')
 Club.create(short_name: 'Cap',
             long_name: 'Cap and Gown',
-            logo: 'cap.png')
+            logo: 'cap.png',
+            permalink: 'cap')
 Club.create(short_name: 'Cloister',
             long_name: 'Cloister Inn',
-            logo: 'cloister.png')
+            logo: 'cloister.png',
+            permalink: 'cloister')
 Club.create(short_name: 'Charter',
             long_name: 'Charter Club',
-            logo: 'charter.png')
+            logo: 'charter.png',
+            permalink: 'charter')
