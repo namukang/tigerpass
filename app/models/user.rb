@@ -24,6 +24,5 @@ class User < ActiveRecord::Base
   validates :netid, format: { with: /\A[a-z]{1,8}\z/ }, uniqueness: true
   validates :club_id, inclusion: { in: 0..10 }, allow_nil: true
   validates :admin_id, inclusion: { in: 0..10 }, allow_nil: true
-  
 end
 
