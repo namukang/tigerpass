@@ -1,4 +1,4 @@
-class CreateEventsUsersTable < ActiveRecord::Migration
+class CreateEventsUsersJoin < ActiveRecord::Migration
   def change
     create_table :events_users, :id => false do |t|
       t.integer :event_id
