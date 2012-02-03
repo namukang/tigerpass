@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :year
       t.integer :club_id
       t.integer :admin_id
+      t.string :email_auth
 
       t.timestamps
     end
