@@ -1,4 +1,5 @@
 Tigerpass::Application.routes.draw do
+  root :to => 'clubs#index'
   resources :clubs
   resources :events
   # The priority is based upon order of creation:

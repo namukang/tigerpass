@@ -2,11 +2,27 @@
 <html>
 <head>
   <title>Tigerpass</title>
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Open+Sans:400,600' rel='stylesheet' type='text/css'>
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="centerColumn">
+
+    <h1 id="title">THE STREET</h1>
+
+    <div id="shieldBorder">
+      <div id="shield">
+        <%= image_tag "shield.png" %>
+      </div>
+    </div>
+
+    <br />
+    <br />
 
 <%= yield %>
 

@@ -1,27 +1,41 @@
-<h1>Listing clubs</h1>
+<!-- <h1>Listing clubs</h1> -->
 
-<table>
-  <tr>
-    <th>Short name</th>
-    <th>Long name</th>
-    <th>Logo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<!-- <table> -->
+<!--   <tr> -->
+<!--     <th>Short name</th> -->
+<!--     <th>Long name</th> -->
+<!--     <th>Logo</th> -->
+<!--     <th></th> -->
+<!--     <th></th> -->
+<!--     <th></th> -->
+<!--   </tr> -->
 
-<% @clubs.each do |club| %>
-  <tr>
-    <td><%= club.short_name %></td>
-    <td><%= club.long_name %></td>
-    <td><%= club.logo %></td>
-    <td><%= link_to 'Show', club %></td>
-    <td><%= link_to 'Edit', edit_club_path(club) %></td>
-    <td><%= link_to 'Destroy', club, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<!-- <% @clubs.each do |club| %> -->
+<!--   <tr> -->
+<!--     <td><%= club.short_name %></td> -->
+<!--     <td><%= club.long_name %></td> -->
+<!--     <td><%= club.logo %></td> -->
+<!--     <td><%= link_to 'Show', club %></td> -->
+<!--     <td><%= link_to 'Edit', edit_club_path(club) %></td> -->
+<!--     <td><%= link_to 'Destroy', club, confirm: 'Are you sure?', method: :delete %></td> -->
+<!--   </tr> -->
+<!-- <% end %> -->
+<!-- </table> -->
 
-<br />
+<!-- <br /> -->
 
-<%= link_to 'New Club', new_club_path %>
+<!-- <%= link_to 'New Club', new_club_path %> -->
+
+<div id="clubLogos">
+  <div class="club" id="terrace"><a href=""></a></div>
+  <div class="club" id="tower"><a href=""></a></div>
+  <div class="club" id="cannon" ><a href=""></a></div>
+  <div class="club" id="quad" ><a href=""></a></div>
+  <div class="club" id="colonial" ><a href=""></a></div>
+  <div class="club" id="ivy" ><a href=""></a></div>
+  <div class="club" id="tiger" ><a href=""></a></div>
+  <div class="club" id="cottage" ><a href=""></a></div>
+  <div class="club" id="cap" ><a href=""></a></div>
+  <div class="club" id="cloister" ><a href=""></a></div>
+  <div class="club" id="charter" ><a href=""></a></div>
+</div>
