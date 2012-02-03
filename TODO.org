@@ -1,0 +1,3 @@
+* Functionality
+  - Look at channel file for FB stuff
+* Performance
