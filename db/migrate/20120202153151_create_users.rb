@@ -2,7 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :netid
-      t.bigint :fb_id
+      t.integer :fb_id
       t.integer :year
       t.integer :club_id
       t.integer :admin_id
