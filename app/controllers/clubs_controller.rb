@@ -21,9 +21,9 @@ class ClubsController < ApplicationController
      if @user.empty?
         if /\A[a-z]{1,8}@princeton.edu\z/.match @fb_user['email']
           User.create()
-          redirect_to "/dat_ass"
+          redirect_to "/dat_ass" and return
         else
-          redirect_to "/dat_ass_2"
+          redirect_to "/dat_ass_2" and return
         end
      end
     end
