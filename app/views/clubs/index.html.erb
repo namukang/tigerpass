@@ -11,11 +11,11 @@
 <br>
 
 <div id="buttons">
-  <a href="#" id="<%= @days[0] %>"><div class="currentDayButton">Today</div></a>
+  <a href="#" id="<%= @days[0].downcase %>"><div class="button currentDayButton">Today</div></a>
   <% for i in 1..5 %>
-  <a href="#" id="<%= @days[i] %>"><div class="dayButton"><%= @days[i] %></div></a>
+  <a href="#" id="<%= @days[i].downcase %>"><div class="button dayButton"><%= @days[i] %></div></a>
   <% end %>
-  <a href="#" id="<%= @days[6] %>"><div class="dayButton lastDayButton"><%= @days[6] %></div></a>
+  <a href="#" id="<%= @days[6].downcase %>"><div id="lastDayButton" class="button dayButton"><%= @days[6] %></div></a>
   <a href="#"><div class="clearfix"></div></a>
 </div>
 
