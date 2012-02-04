@@ -32,6 +32,13 @@ class ClubsController < ApplicationController
     # Show all the clubs and events
     @clubs = Club.all
     @events = Event.where(date: Date.today..(Date.today + 1.week))
+    # Figure out order of buttons
+    days_of_week = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    @days = []
+    cur_day = Date.today.wday
+    for i in 0..6
+      @days << days_of_week[(cur_day + i) % 7]
+    end
 
     respond_to do |format|
       format.html # index.html.erb

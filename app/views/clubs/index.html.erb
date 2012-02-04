@@ -11,13 +11,11 @@
 <br>
 
 <div id="buttons">
-  <a href="#"><div class="currentDayButton">Today</div></a>
-  <a href="#"><div class="dayButton">Saturday</div></a>
-  <a href="#"><div class="dayButton">Sunday</div></a>
-  <a href="#"><div class="dayButton">Monday</div></a>
-  <a href="#"><div class="dayButton">Tuesday</div></a>
-  <a href="#"><div class="dayButton">Wednesday</div></a>
-  <a href="#"><div class="dayButton lastDayButton">Thursday</div></a>
+  <a href="#" id="<%= @days[0] %>"><div class="currentDayButton">Today</div></a>
+  <% for i in 1..5 %>
+  <a href="#" id="<%= @days[i] %>"><div class="dayButton"><%= @days[i] %></div></a>
+  <% end %>
+  <a href="#" id="<%= @days[6] %>"><div class="dayButton lastDayButton"><%= @days[6] %></div></a>
   <a href="#"><div class="clearfix"></div></a>
 </div>
 
@@ -29,7 +27,7 @@
 
 <div id="events">
   <% @events.each do |event| %>
-    <div class="event">
+    <div class="event <%= event.date.strftime('%A').downcase %>">
       <div class="eventHostLogo <%= event.club.permalink %>"></div>
       <div class="eventDetails">
         <h2><span><%= event.title %></span></h2>

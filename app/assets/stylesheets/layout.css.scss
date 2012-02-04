@@ -71,7 +71,7 @@ h4
 	float:left;
 }
 
-.terrace:active, .tower:active, .cannon:active, .quad:active, .colonial:active, .ivy:active, 
+.terrace:active, .tower:active, .cannon:active, .quad:active, .colonial:active, .ivy:active,
 .ti:active, .cottage:active, .cap:active, .cloister:active, .charter:active
 {
 	position:relative;
@@ -128,7 +128,7 @@ h4
 
 .cap
 {
-	width: 80px;	
+	width: 80px;
 	background-position: -740px 0;
 }
 
@@ -162,7 +162,7 @@ h4
 	margin-right: 15px;
 	float: left;
 	text-align: center;
-	
+
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -269,15 +269,15 @@ h4
 	line-height: 0;
 	height: 0;
 }
- 
+
 .clearfix {
 	display: inline-block;
 }
- 
+
 html[xmlns] .clearfix {
 	display: block;
 }
- 
+
 * html .clearfix {
 	height: 1%;
 }
