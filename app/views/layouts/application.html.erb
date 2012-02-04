@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tigerpass</title>
-  <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Open+Sans:400,600' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="centerColumn">
+  <head>
+    <title>TigerPass</title>
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="centerColumn">
 
-    <h1 id="title">THE STREET</h1>
+      <h1>THE STREET</h1>
 
-    <div id="shieldBorder">
-      <div id="shield">
-        <%= image_tag "shield.png" %>
+      <div id="shieldBorder">
+        <div id="shield">
+          <%= image_tag "shield.png" %>
+        </div>
       </div>
-    </div>
 
-    <br />
-    <br />
+      <br>
+      <br>
 
-<%= yield %>
+      <%= yield %>
 
-</body>
+  </body>
 </html>

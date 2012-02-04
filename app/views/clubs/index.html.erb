@@ -1,35 +1,44 @@
-<!-- <h1>Listing clubs</h1> -->
-
-<!-- <table> -->
-<!--   <tr> -->
-<!--     <th>Short name</th> -->
-<!--     <th>Long name</th> -->
-<!--     <th>Logo</th> -->
-<!--     <th></th> -->
-<!--     <th></th> -->
-<!--     <th></th> -->
-<!--   </tr> -->
-
-<!-- <% @clubs.each do |club| %> -->
-<!--   <tr> -->
-<!--     <td><%= club.short_name %></td> -->
-<!--     <td><%= club.long_name %></td> -->
-<!--     <td><%= club.logo %></td> -->
-<!--     <td><%= link_to 'Show', club %></td> -->
-<!--     <td><%= link_to 'Edit', edit_club_path(club) %></td> -->
-<!--     <td><%= link_to 'Destroy', club, confirm: 'Are you sure?', method: :delete %></td> -->
-<!--   </tr> -->
-<!-- <% end %> -->
-<!-- </table> -->
-
-<!-- <br /> -->
-
-<!-- <%= link_to 'New Club', new_club_path %> -->
-
 <div id="clubLogos">
   <% @clubs.each do |club| %>
     <%= link_to(club) do %>
-    <div class="club" id="<%= club.short_name.downcase %>"></div>
+      <div class="club <%= club.short_name.downcase %>"></div>
     <% end %>
   <% end %>
+</div>
+<div class="clearfix"></div>
+
+<br>
+<br>
+
+<div id="buttons">
+  <a href="#"><div class="currentDayButton">Today</div></a>
+  <a href="#"><div class="dayButton">Saturday</div></a>
+  <a href="#"><div class="dayButton">Sunday</div></a>
+  <a href="#"><div class="dayButton">Monday</div></a>
+  <a href="#"><div class="dayButton">Tuesday</div></a>
+  <a href="#"><div class="dayButton">Wednesday</div></a>
+  <a href="#"><div class="dayButton lastDayButton">Thursday</div></a>
+  <a href="#"><div class="clearfix"></div></a>
+</div>
+
+<br>
+
+<div class="dottedDivider"></div>
+
+<br>
+
+<div class="event">
+  <div class="eventHostLogo colonial"></div>
+  <div class="eventDetails">
+    <h2><span>Rockin New Year's Eve</span></h2>
+    <h3>Colonial</h3>
+    <h3>11:00 - the break o' dawn</h3>
+    <h3>PUID Access</h3>
+    <br>
+    <h4>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</h4>
+  </div>
+  <div class="attendees">
+    <h2 style="visibility:hidden">.</h2>
+    <h3>53 People Attending</h3>
+  </div>
 </div>
