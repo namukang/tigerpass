@@ -6,16 +6,15 @@ class ClubsController < ApplicationController
   end
 
   def index
-    
     @oauth ||= Koala::Facebook::OAuth.new
     if not session[:access_token]
-      if params[:code]    
+      if params[:code]
         session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
       else
         redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
       end
     else
-      @graph = Koala::Facebook::API.new(session[:access_token]) 
+      @graph = Koala::Facebook::API.new(session[:access_token])
       @fb_id = @graph.get_object("me")["id"]
       @user = User.where(fb_id: @fb_id)
      # if @user.empty?
