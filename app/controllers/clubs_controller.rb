@@ -9,7 +9,7 @@ class ClubsController < ApplicationController
     
     @oauth = Koala::Facebook::OAuth.new
     if params[:code]
-      @access_token = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
+      session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
       @graph = Koala::Facebook::GraphAPI.new(@access_token) 
     else
       redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
