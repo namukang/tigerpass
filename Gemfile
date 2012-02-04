@@ -45,6 +45,3 @@ end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Use compass
-gem "compass", ">= 0.12.alpha.0"
