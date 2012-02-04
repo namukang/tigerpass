@@ -1,5 +1,5 @@
 module Facebook
-  APP_ID = ENV['FB_ID']
+  APP_ID = ENV['FB_KEY']
   SECRET = ENV['FB_SECRET']
 end
 

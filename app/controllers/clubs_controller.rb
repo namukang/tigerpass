@@ -14,12 +14,14 @@ class ClubsController < ApplicationController
         redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
       end
     else
-      @graph = Koala::Facebook::API.new(session[:access_token])
-      @fb_id = @graph.get_object("me")["id"]
+      @graph = Koala::Facebook::API.new(session[:access_token]) 
+      @fb_user = @graph.get_object("me")["id"]
+      @fb_id = @fb_user['id']
       @user = User.where(fb_id: @fb_id)
-     # if @user.empty?
-     #   redirect_to "/users/new" and return
-     # end
+     if @user.empty?
+       # @fb_user['email']
+       # redirect_to "/users/new" and return
+     end
     end
 
     @clubs = Club.all
