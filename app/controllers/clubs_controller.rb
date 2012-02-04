@@ -7,12 +7,15 @@ class ClubsController < ApplicationController
 
   def index
     
-    @oauth = Koala::Facebook::OAuth.new
-    if params[:code]
-      session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
-      @graph = Koala::Facebook::GraphAPI.new(@access_token) 
+    @oauth = Koala::Facebook::OAuth.new(redirect_uri: "http://localhost:3000/")
+    if not session[:access_token]
+      if params[:code]    
+        session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
+      else
+        redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
+      end
     else
-      redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
+      @graph = Koala::Facebook::GraphAPI.new(session[:access_token]) 
     end
 
     @clubs = Club.all
