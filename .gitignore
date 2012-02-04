@@ -23,3 +23,5 @@ doc/
 *~
 .project
 .DS_Store
+#*
+.#*

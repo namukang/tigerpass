@@ -1,11 +1,12 @@
 class ClubsController < ApplicationController
-  before_filter :get_club, :only=>[:show,:update,:edit,:destroy]
+  before_filter :get_club, :only=>[:show]
 
   def get_club
     @club = Club.find_by_permalink! params[:id]
   end
 
   def index
+    # FB auth
     @oauth ||= Koala::Facebook::OAuth.new
     if not session[:access_token]
       if params[:code]
@@ -28,7 +29,9 @@ class ClubsController < ApplicationController
      end
     end
 
+    # Show all the clubs and events
     @clubs = Club.all
+    @events = Event.where(date: Date.today..(Date.today + 1.week))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +40,8 @@ class ClubsController < ApplicationController
   end
 
   def show
+    # Show the events for the specific club for that week
+    @events = Event.where(club_id: @club.id, date: Date.today..(Date.today + 1.week))
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @club }

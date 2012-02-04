@@ -27,18 +27,25 @@
 
 <br>
 
-<div class="event">
-  <div class="eventHostLogo colonial"></div>
-  <div class="eventDetails">
-    <h2><span>Rockin New Year's Eve</span></h2>
-    <h3>Colonial</h3>
-    <h3>11:00 - the break o' dawn</h3>
-    <h3>PUID Access</h3>
+<div id="events">
+  <% @events.each do |event| %>
+    <div class="event">
+      <div class="eventHostLogo <%= event.club.permalink %>"></div>
+      <div class="eventDetails">
+        <h2><span><%= event.title %></span></h2>
+        <h3><%= event.club.short_name %></h3>
+        <h3><%= event.start_time.in_time_zone.strftime("%l:%M%p") %> -
+        <%= event.end_time.in_time_zone.strftime("%l:%M%p") %></h3>
+        <h3><%= event.access %></h3>
+        <br>
+        <h4><%= event.description %></h4>
+      </div>
+      <div class="attendees">
+        <h2 style="visibility:hidden">.</h2>
+        <h3><%= event.attendees.count %> People Attending</h3>
+      </div>
+    </div>
     <br>
-    <h4>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</h4>
-  </div>
-  <div class="attendees">
-    <h2 style="visibility:hidden">.</h2>
-    <h3>53 People Attending</h3>
-  </div>
+    <br>
+  <% end %>
 </div>

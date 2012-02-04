@@ -26,11 +26,11 @@ end
 
 class Event < ActiveRecord::Base
   belongs_to :club
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :attendees, class_name: "User"
 
   include ActiveModel::Validations
   validates_with DateValidator
-  
+
   validates :club_id, presence: true, inclusion: { in: 0..10 }
   validates :start_time, presence: true
   validates :date, presence: true
