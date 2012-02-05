@@ -76,4 +76,7 @@ $(function() {
     // Only show this club's events
     filter_events(club + "_event")
   });
+  $('.attendLink').click(function (e) {
+    e.preventDefault();
+  });
 });
