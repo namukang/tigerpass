@@ -51,14 +51,15 @@
       <div class="attendees">
         <!-- TODO: Uncomment when :user_id available -->
         <% # if not @user.attending? event %>
-        <a id="<%= event.id %>" class="attendLink" href="#">
-          <div class="attendButton">I'll be there</div>
-        </a>
-        <% # else %>
-        <!-- <h3 style="display: inline">You are attending! ( -->
-        <!-- <a id="<%= event.id %>" class="unattendLink linkBorder" href="#">Undo</a> -->
-        <!-- )</h3> -->
-        <% # end %>
+        <% if rand(2) == 0 %>
+          <a id="<%= event.id %>" class="attendLink" href="#">
+            <div class="attendButton">I'll be there</div>
+          </a>
+        <% else %>
+          <h3 style="display: inline">You are attending!
+            (<a id="<%= event.id %>" class="unattendLink linkBorder" href="#">Undo</a>)
+          </h3>
+        <% end %>
         <h2 style="visibility:hidden; display: inline">.</h2>
         <h3 style="visibility:hidden">.</h3>
         <!-- TODO: Uncomment -->
