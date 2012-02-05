@@ -3,7 +3,12 @@ var selected_club = null;
 // Filter events shown
 function filter_events(filter) {
   $('.event').hide();
-  $('.event').filter('.' + filter).show();
+  var events = $('.event').filter('.' + filter);
+  if (events.length == 0) {
+    $('.campus').show();
+  } else {
+    events.show();
+  }
 }
 
 $(function() {

@@ -27,6 +27,13 @@
 <br>
 
 <div id="events">
+  <div class="event campus">
+    <h3>No clubs are open. Well, maybe one.</h3>
+    <br>
+    <%= image_tag "campus.jpg" %>
+    <br>
+    <br>
+  </div>
   <% @events.each do |event| %>
     <div class="event <%= event.club.permalink + "_event" %> <%= event.date.strftime('%A').downcase %>">
       <div class="eventHostLogo <%= event.club.permalink %>"></div>
