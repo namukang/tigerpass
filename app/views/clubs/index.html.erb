@@ -64,7 +64,11 @@
           <!-- FIXME: Write AJAX to fetch real values -->
           <% friend_count = rand(50) %>
         <% end %>
-        <h3 class="friendsLabel"><%= friend_count %> Friends Attending</h3>
+        <h3 class="friendsLabel"><%= pluralize(friend_count, "Friend") %> Attending</h3>
+        <br>
+        <% @friends[event.id].each do |friend| %>
+          <%= image_tag @graph.get_picture(friend.fb_id) %>
+        <% end %>
       </div>
       <br />
       <br />

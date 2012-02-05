@@ -31,8 +31,8 @@ class ClubsController < ApplicationController
       today_events.each do |event|
         @friends[event.id] = Set.new
       end
-      graph = Koala::Facebook::API.new(session[:access_token])
-      friend_ids = graph.get_connections("me", "friends", fields: "id")
+      @graph = Koala::Facebook::API.new(session[:access_token])
+      friend_ids = @graph.get_connections("me", "friends", fields: "id")
 
       # Hash of event to set of friends attending
       friend_ids.each do |friend_id|
