@@ -4,8 +4,15 @@ var selected_club = null;
 function filter_events(filter) {
   $('.event').hide();
   var events = $('.event').filter('.' + filter);
-  if (events.length == 0) {
+  if (events.length === 0) {
     $('.campus').show();
+    if (selected_club === null) {
+      $('.date_msg').show();
+      $('.club_msg').hide();
+    } else {
+      $('.date_msg').hide();
+      $('.club_msg').show();
+    }
   } else {
     events.show();
   }
