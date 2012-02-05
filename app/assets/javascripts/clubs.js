@@ -78,16 +78,22 @@ $(function() {
   });
   $('.attendLink').click(function (e) {
     e.preventDefault();
+    var event_id = $(this).attr('id');
     $.ajax({
-      url: "/attend/" + $(this).attr('id'),
+      url: "/attend/" + event_id,
       type: "POST"
     });
+    $('.attend' + event_id).hide();
+    $('.unattend' + event_id).show().css('display', 'inline');
   });
   $('.unattendLink').click(function (e) {
     e.preventDefault();
+    var event_id = $(this).attr('id');
     $.ajax({
-      url: "/unattend/" + $(this).attr('id'),
+      url: "/unattend/" + event_id,
       type: "POST"
     });
+    $('.attend' + event_id).show();
+    $('.unattend' + event_id).hide();
   });
 });
