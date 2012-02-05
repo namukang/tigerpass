@@ -38,7 +38,7 @@ class ClubsController < ApplicationController
     @clubs = Club.all
     @events = Event.where(date: Date.today..(Date.today + 1.week))
     # Figure out order of buttons
-    days_of_week = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    days_of_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     @days = []
     cur_day = Date.today.wday
     for i in 0..6
