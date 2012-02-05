@@ -64,7 +64,7 @@ h4
 	margin-bottom: -15px;
 }
 
-.terrace, .tower, .cannon, .quad, .colonial, .ivy, .ti, .cottage, .cap, .cloister, .charter
+.terrace, .tower, .cannon, .quad, .colonial, .ivy, .tigerinn, .cottage, .cap, .cloister, .charter
 {
 	background: image-url('clubs.png');
 	height: 100px;
@@ -72,7 +72,7 @@ h4
 }
 
 .terrace:active, .tower:active, .cannon:active, .quad:active, .colonial:active, .ivy:active,
-.ti:active, .cottage:active, .cap:active, .cloister:active, .charter:active
+.tigerinn:active, .cottage:active, .cap:active, .cloister:active, .charter:active
 {
 	position:relative;
 	top:1px;
@@ -114,7 +114,7 @@ h4
 	background-position: -445px 0;
 }
 
-.ti
+.tigerinn
 {
 	width: 100px;
 	background-position: -545px 0;

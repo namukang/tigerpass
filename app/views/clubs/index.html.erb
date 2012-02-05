@@ -1,8 +1,9 @@
 <div id="clubLogos">
   <% @clubs.each do |club| %>
-    <%= link_to(club) do %>
-      <div class="club <%= club.short_name.downcase %>"></div>
-    <% end %>
+    <a href="#">
+      <!-- FIXME: Nasty hack: club's permalink must come first! -->
+      <div class="<%= club.permalink %> club"></div>
+    </a>
   <% end %>
 </div>
 <div class="clearfix"></div>
@@ -11,7 +12,7 @@
 <br>
 
 <div id="buttons">
-  <a href="#" id="<%= @days[0].downcase %>"><div class="button currentDayButton">Today</div></a>
+  <a href="#" id="<%= @days[0].downcase %>"><div class="button todayButton currentDayButton">Today</div></a>
   <% for i in 1..5 %>
   <a href="#" id="<%= @days[i].downcase %>"><div class="button dayButton"><%= @days[i] %></div></a>
   <% end %>
@@ -27,7 +28,7 @@
 
 <div id="events">
   <% @events.each do |event| %>
-    <div class="event <%= event.date.strftime('%A').downcase %>">
+    <div class="event <%= event.club.permalink + "_event" %> <%= event.date.strftime('%A').downcase %>">
       <div class="eventHostLogo <%= event.club.permalink %>"></div>
       <div class="eventDetails">
         <h2><span><%= event.title %></span></h2>
@@ -43,8 +44,8 @@
         <h2 style="visibility:hidden">.</h2>
         <h3><%= event.attendees.count %> People Attending</h3>
       </div>
+      <br>
+      <br>
     </div>
-    <br>
-    <br>
   <% end %>
 </div>
