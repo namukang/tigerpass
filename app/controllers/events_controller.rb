@@ -12,23 +12,21 @@ class EventsController < ApplicationController
 
   # Mark user as attending
   def attend
-    # TODO: Uncomment when :user_id session variable available
-    # event = Event.find(params[:event_id])
-    # user = User.find_by_fb_id(session[:user_id])
-    # if not user.attending? event
-    #   user.events << event
-    # end
+    event = Event.find(params[:event_id])
+    user = User.find_by_fb_id(session[:user_id])
+    if not user.attending? event
+      user.events << event
+    end
     render nothing: true
   end
 
   # Mark user as not attending
   def unattend
-    # TODO: Uncomment when :user_id session variable available
-    # event = Event.find(params[:event_id])
-    # user = User.find_by_fb_id(session[:user_id])
-    # if user.attending? event
-    #   user.events.delete(event)
-    # end
+    event = Event.find(params[:event_id])
+    user = User.find_by_fb_id(session[:user_id])
+    if user.attending? event
+      user.events.delete(event)
+    end
     render nothing: true
   end
 

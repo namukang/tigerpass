@@ -7,7 +7,7 @@ class AccessController < ApplicationController
       base_uri = "http://www.tigerpass.me/"
     else
       base_uri = "http://localhost:5000/"
-    end    
+    end
     redirect_uri = base_uri + "fblogin/"
     if params[:code]
       token = oauth.get_access_token_info(params[:code], {redirect_uri: redirect_uri})
@@ -61,16 +61,16 @@ class AccessController < ApplicationController
     end
   end
 
-  def auth    
+  def auth
     unless session[:ready_to_auth] == true
       redirect_to "/denied" and return
     end
     unless ENV['EM_PASS']
       raise "couldn't find stored email password"
     end
-    Pony.options = { 
-      from: 'tigerpassauth@gmail.com', 
-      via: :smtp, 
+    Pony.options = {
+      from: 'tigerpassauth@gmail.com',
+      via: :smtp,
       via_options: {
         address: 'smtp.gmail.com',
         port: '587',
@@ -111,7 +111,7 @@ class AccessController < ApplicationController
       base_uri = "http://www.tigerpass.me/"
     else
       base_uri = "http://localhost:5000/"
-    end    
+    end
     Pony.mail(to: email_dest, subject: "TigerPass Authentication", body: "click me: #{base_uri}newuser?auth_code=#{random}&auth_netid=#{getnetid}")
     session[:ready_to_email] = false
     redirect_to "http://webmail.princeton.edu/" and return
@@ -122,8 +122,8 @@ class AccessController < ApplicationController
       base_uri = "http://www.tigerpass.me/"
     else
       base_uri = "http://localhost:5000/"
-    end    
-    redirect_to base_uri and return 
+    end
+    redirect_to base_uri and return
   end
 
   def ugonly
@@ -131,7 +131,7 @@ class AccessController < ApplicationController
       base_uri = "http://www.tigerpass.me/"
     else
       base_uri = "http://localhost:5000/"
-    end    
-    redirect_to base_uri and return 
+    end
+    redirect_to base_uri and return
   end
 end
