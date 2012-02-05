@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :club_id, class: "submitLabel" %>
-    <%= f.number_field :club_id %>
+    <%= f.select :club_id, Club.all.collect {|c| [ c.short_name, c.id ]} %>
   </div>
   <br />
   <div class="field">

@@ -1,9 +1,11 @@
 <%= form_for :user, url: "/createuser" do |f| %>
   <%= f.label :year %>:
-  <%= f.text_field :year %><br />
+  <%= f.select :year, 2012..2015 %>
+  <br />
+  <br />
 
   <%= f.label :club_id %>:
-  <%= f.text_field :club_id %><br />
+  <%= f.select :club_id, Club.all.collect {|c| [ c.short_name, c.id ]} %>
 
   <%= f.submit %>
 <% end %>
