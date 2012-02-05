@@ -9,9 +9,9 @@ class ClubsController < ApplicationController
     # FB auth
     @oauth ||= Koala::Facebook::OAuth.new
     if Rails.env.production?
-      redirect_uri = "http://www.tigerpass.me"
+      redirect_uri = "http://www.tigerpass.me/"
     else
-      redirect_uri = "http://localhost:5000"
+      redirect_uri = "http://localhost:5000/"
     end
     if not session[:access_token]
       if params[:code]
