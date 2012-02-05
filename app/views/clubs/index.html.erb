@@ -59,7 +59,13 @@
           <h2 style="visibility:hidden; display: inline">.</h2>
         </a>
         <h3 style="visibility:hidden">.</h3>
-        <h3 class="friendsLabel"><%= rand(50) %> Friends Attending</h3>
+        <!-- TODO: Uncomment -->
+        <% # if event.date == Date.today %>
+          <% # friend_count = @friends[event.id].size %>
+        <% # else %>
+          <% friend_count = rand(50) %>
+        <% # end %>
+        <h3 class="friendsLabel"><%= friend_count %> Friends Attending</h3>
       </div>
       <br />
       <br />

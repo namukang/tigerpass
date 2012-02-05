@@ -21,6 +21,17 @@ class EventsController < ApplicationController
     render nothing: true
   end
 
+  # Mark user as not attending
+  def unattend
+    # TODO: Uncomment when :user_id session variable available
+    # event = Event.find(params[:event_id])
+    # user = User.find_by_fb_id(session[:user_id])
+    # if user.attending? event
+    #   user.events.delete(event)
+    # end
+    render nothing: true
+  end
+
   # GET /events/new
   # GET /events/new.json
   def new

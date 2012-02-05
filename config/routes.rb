@@ -3,6 +3,7 @@ Tigerpass::Application.routes.draw do
   resources :clubs
   resources :events
   match 'attend/:event_id', to: 'events#attend'
+  match 'unattend/:event_id', to: 'events#unattend'
 
   match 'fblogin', to: 'access#fblogin'
   match 'newuser', to: 'access#newuser'

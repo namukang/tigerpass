@@ -18,6 +18,35 @@ class ClubsController < ApplicationController
       @days << days_of_week[(cur_day + i) % 7]
     end
 
+    # Find friends who are attending today's events
+    # (Friends for other events will be found through AJAX requests)
+
+    # today_events = Array.new
+    # @events.each do |event|
+    #   if event.date == Date.today
+    #     today_events << event
+    #   end
+    # end
+    # @friends = Hash.new
+    # today_events.each do |event|
+    #   @friends[event.id] = Set.new
+    # end
+    # graph = Koala::Facebook::API.new(session[:access_token])
+    # friend_ids = graph.get_connections("me", "friends", fields: "id")
+
+    # Hash of event to set of friends attending
+
+    # friend_ids.each do |friend_id|
+    #   friend = User.find_by_fb_id(friend_id['id'])
+    #   if not friend.nil?
+    #     today_events.each do |event|
+    #       if friend.attending? event
+    #         @friends[event.id].add(friend)
+    #       end
+    #     end
+    #   end
+    # end
+
     # TODO: Uncomment when user_id available
     # @user = User.find_by_fb_id(session[:user_id])
     respond_to do |format|
