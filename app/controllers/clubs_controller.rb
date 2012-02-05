@@ -8,11 +8,16 @@ class ClubsController < ApplicationController
   def index
     # FB auth
     @oauth ||= Koala::Facebook::OAuth.new
+    if Rails.env.production?
+      redirect_uri = "http://www.tigerpass.me"
+    else
+      redirect_uri = "http://localhost:5000"
+    end
     if not session[:access_token]
       if params[:code]
-        session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: "http://localhost:3000/"})
+        session[:access_token] = @oauth.get_access_token(params[:code], {redirect_uri: redirect_uri})
       else
-        redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: "http://localhost:3000/") and return
+        redirect_to @oauth.url_for_oauth_code(permissions: "email", redirect_uri: redirect_uri) and return
       end
     else
       @graph = Koala::Facebook::API.new(session[:access_token])
