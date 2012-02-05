@@ -28,7 +28,8 @@ class Event < ActiveRecord::Base
   belongs_to :club
   has_and_belongs_to_many :attendees, class_name: "User"
 
-  attr_protected :club_id
+  # FIXME: Comment out for demo purposes
+  # attr_protected :club_id
 
   include ActiveModel::Validations
   validates_with DateValidator

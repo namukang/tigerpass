@@ -51,8 +51,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-    user = User.find_by_fb_id(session[:user_id])
-    @event.club_id = user.admin_id
+    # FIXME: Comment out for demo purposes
+    # user = User.find_by_fb_id(session[:user_id])
+    # @event.club_id = user.admin_id
 
     respond_to do |format|
       if @event.save
