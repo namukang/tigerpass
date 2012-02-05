@@ -3,9 +3,12 @@
   <%= f.select :year, 2012..2015 %>
   <br />
   <br />
-
   <%= f.label :club_id %>:
   <%= f.select :club_id, Club.all.collect {|c| [ c.short_name, c.id ]} %>
-
+  <br />
+  <br />
   <%= f.submit %>
+  <br />
+  <br />
+  <br />
 <% end %>
