@@ -2,6 +2,11 @@ Tigerpass::Application.routes.draw do
   root :to => 'clubs#index'
   resources :clubs
   resources :events
+  
+  match 'fblogin', to: 'access#fblogin'
+  match 'newuser', to: 'access#newuser'
+  match 'ugauth', to: 'access#auth'
+  match 'denied', to: 'access#denied'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

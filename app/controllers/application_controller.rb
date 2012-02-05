@@ -4,18 +4,21 @@ class ApplicationController < ActionController::Base
   protected
   
   def confirm_fb_auth
-    if session[:access_expiry] <= Time.now
-      session[:access_token] = nil
+    if session[:access_expiry]
+      if session[:access_expiry] <= Time.now
+        session[:access_expiry] = nil
+        session[:access_token] = nil
+      end
     end
     unless session[:access_token]
       if session[:user_id]
         session[:user_id] = nil
         flash[:notice] = "You may have logged out of facebook, or your facebook session may have expired. Please login again."
-        redirect_to(controller: 'access', action: 'fblogin')
+        redirect_to "/fblogin"
         return false
       else
         flash[:notice] = "You must login to facebook to use Tigerpass."
-        redirect_to(controller: 'access', action: 'fblogin')
+        redirect_to "/fblogin"
         return false
       end
     else
@@ -41,11 +44,12 @@ class ApplicationController < ActionController::Base
         session[:new_netid] = fb_email.split('@').first
         session[:new_fb_id] = fb_id
         flash[:notice] = "It looks like you haven't used Tigerpass before. You'll need to create a user profile so we can get started."
-        redirect_to(controller: 'access', action: 'newuser')
+        redirect_to "/newuser"
         return false # halts the before_filter
       else
+        session[:ready_to_auth] = true
         flash[:notice] = "It looks like you haven't used Tigerpass before. We'll need to authenticate that you are a Princeton undergraduate student."
-        redirect_to(controller: 'access', action: 'auth')        
+        redirect_to "/ugauth"        
         return false
       end
     else
@@ -62,7 +66,7 @@ class ApplicationController < ActionController::Base
     clubname = Club.find(clubid)['long_name']
     if user['admin_id'] != clubid or super_admin_netid(user['netid']) == false
       flash[:notice] = "You must be an officer of #{clubname} to access this page."
-      redirect_to(controller: 'access', action: 'denied')
+      redirect_to "/denied"
       return false # halts the before_filter
     else
       return true
@@ -76,7 +80,7 @@ class ApplicationController < ActionController::Base
     user = User.where(fb_id: session[:user_id])
     if super_admin_netid(user['netid']) == false
       flash[:notice] = "This page is accessible only to site administrators. Please contact us if you believe you are seeing this message in error."
-      redirect_to(:controller => 'access', :action => 'denied')
+      redirect_to "/denied"
       return false # halts the before_filter
     else
       return true
