@@ -2,7 +2,8 @@ Tigerpass::Application.routes.draw do
   root :to => 'clubs#index'
   resources :clubs
   resources :events
-  
+  match 'attend/:event_id', to: 'events#attend'
+
   match 'fblogin', to: 'access#fblogin'
   match 'newuser', to: 'access#newuser'
   match 'ugauth', to: 'access#auth'
