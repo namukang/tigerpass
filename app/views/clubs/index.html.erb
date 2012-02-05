@@ -38,11 +38,16 @@
             <%= event.end_time.in_time_zone.strftime("%l:%M%p") %></h3>
         <h3><%= event.access %></h3>
         <br>
-        <h4><%= event.description %></h4>
+        <p><%= event.description %></p>
       </div>
       <div class="attendees">
-        <h2 style="visibility:hidden">.</h2>
+        <a href="#">
+          <div class="attendButton">I'll be there</div>
+          <h2 style="visibility:hidden; display: inline">.</h2>
+        </a>
+        <h3 style="visibility:hidden">.</h3>
         <h3><%= event.attendees.count %> People Attending</h3>
+        <h3 class="friendsLabel">17 Friends</h3>
       </div>
       <br>
       <br>
