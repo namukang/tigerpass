@@ -26,7 +26,7 @@ class ClubsController < ApplicationController
         today_events << event
       end
     end
-    @friends = Hash.new
+    @friends = Hash.new(Set.new)
     unless today_events.empty?
       today_events.each do |event|
         @friends[event.id] = Set.new
