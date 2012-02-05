@@ -52,12 +52,12 @@
         <!-- TODO: Uncomment when :user_id available -->
         <% # attending = @user.attending? event %>
         <% attending = (rand(2) == 0) %>
-          <a <%= if not attending then "style='display:none'" end %> id="<%= event.id %>" class="attendLink attend<%= event.id %>" href="#">
-            <div class="attendButton">I'll be there!</div>
-          </a>
-          <h3 <%= if attending then "style='display:none'" end %> style="display: inline" class="unattend<%= event.id %>">You are attending!
-            (<a id="<%= event.id %>" class="unattendLink linkBorder" href="#">Undo</a>)
-          </h3>
+        <a <%= if not attending then "style='display:none'" end %> id="<%= event.id %>" class="attendLink attend<%= event.id %>" href="#">
+          <div class="attendButton">I'll be there!</div>
+        </a>
+        <h3 <%= if attending then "style='display:none'" end %> style="display: inline" class="unattend<%= event.id %>">You are attending!
+          (<a id="<%= event.id %>" class="unattendLink linkBorder" href="#">Undo</a>)
+        </h3>
         <h2 style="visibility:hidden; display: inline">.</h2>
         <h3 style="visibility:hidden">.</h3>
         <!-- TODO: Uncomment -->
