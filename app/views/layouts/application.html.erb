@@ -10,7 +10,9 @@
   </head>
   <body>
     <div id="centerColumn">
-      <h1>THE STREET</h1>
+      <%= link_to root_url, id: "mainLogo" do %>
+        <h1>TIGERPASS</h1>
+      <% end %>
 
       <div id="shieldBorder">
         <div id="shield">
@@ -42,7 +44,7 @@
           <a class="linkBorder"
              href="mailto:dskang@princeton.edu?subject='The Street' Web App">Contact</a> - 2012
         </h5>
-        <img id="blackshield" style="margin-top: 10px;" src="<%= image_path("blackshield.png") %>" alt="" />
+        <div id="blackshield"><img id="blackshieldImg" style="margin-top: 10px;" src="<%= image_path("blackshield.png") %>" alt="" /></div>
       </div>
     </div>
   </body>

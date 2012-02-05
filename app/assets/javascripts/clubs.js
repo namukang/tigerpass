@@ -19,9 +19,11 @@ function filter_events(filter) {
 }
 
 $(function() {
-  // Filter results by default
-  var current_day = $('.currentDayButton').parent().attr('id');
-  filter_events(current_day);
+  if (window.location.pathname === "/") {
+    // Filter results by default
+    var current_day = $('.currentDayButton').parent().attr('id');
+    filter_events(current_day);
+  }
 
   $('.club').hover(function() {
     if (selected_club === null) {

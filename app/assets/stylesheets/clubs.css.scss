@@ -1,0 +1,43 @@
+/* event submission page */
+
+#subTitle
+{
+    font-family: "Lato", Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.submitLabel
+{
+    width: 225px;
+    display: inline-block;
+}
+
+.inputArea
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+input[type=text]
+{
+    border: 0px;
+    height: 25px;
+    width: 294px;
+    padding-left: 4px;
+}
+
+input[type=text]:focus {
+    outline: none;
+    box-shadow:0 0 10px #EFBD59;
+}
+
+textarea
+{
+    border: 0px;
+}
+
+textarea:focus {
+    outline: none;
+    box-shadow:0 0 10px #EFBD59;
+}
+

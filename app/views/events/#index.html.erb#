@@ -1,14 +1,4 @@
-<%= link_to new_event_path do %>
-  <div class="attendButton">Add New Event</div>
-<% end %>
-<br />
-<br />
-<br />
-<div class="dottedDivider"></div>
-<br />
-<h2 id="subTitle">Listed Events</h2>
-<br />
-<br />
+<h2 id="subTitle">Listing Events</h2>
 
 <div id="events">
   <% @events.each do |event| %>
@@ -25,13 +15,13 @@
         <p><%= event.description %></p>
       </div>
       <div class="attendees">
-        <h3><strong>Options:</strong></h3>
-        <h3>- <%= link_to "Edit", edit_event_path(event), class: "linkBorder" %></h3>
-        <h3>- <%= link_to 'Delete', event, confirm: 'Are you sure?', method: :delete, class: "linkBorder" %></h3>
+        <h3>- <%= link_to </h3>
+        <h3>- </h3>
       </div>
-      <br />
-      <br />
-      <br />
+      <br>
+      <br>
     </div>
   <% end %>
 </div>
+
+<%= link_to 'New Event', new_event_path %>

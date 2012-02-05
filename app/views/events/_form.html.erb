@@ -1,7 +1,7 @@
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h3><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h3>
 
       <ul>
       <% @event.errors.full_messages.each do |msg| %>
@@ -12,42 +12,43 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :club_id %><br />
+    <%= f.label :club_id, class: "submitLabel" %>
     <%= f.number_field :club_id %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.label :date, class: "submitLabel" %>
+    <%= f.date_select :date, start_year: Time.now.year, end_year:
+    Time.now.year + 1 %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.time_select :start_time %>
+    <%= f.label :start_time, class: "submitLabel" %>
+    <%= f.time_select :start_time, { minute_step: 15, ampm: true }, { class: "inputArea" } %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
+    <%= f.label :end_time, class: "submitLabel" %>
+    <%= f.time_select :end_time, { minute_step: 15, ampm: true }, { class: "inputArea" } %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title, class: "submitLabel" %>
+    <%= f.text_field :title, class: "inputArea" %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description, class: "submitLabel" %>
+    <%= f.text_area :description, size: "40x10", class: "inputArea" %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :access %><br />
-    <%= f.text_field :access %>
+    <%= f.label :access, "Access (PUID, Pass, etc.)", class: "submitLabel" %>
+    <%= f.text_field :access, class: "inputArea" %>
   </div>
-  <div class="field">
-    <%= f.label :image_small %><br />
-    <%= f.text_field :image_small %>
-  </div>
-  <div class="field">
-    <%= f.label :image_poster %><br />
-    <%= f.text_field :image_poster %>
-  </div>
+  <br />
   <div class="actions">
+    <span class="submitLabel"></span>
     <%= f.submit %>
   </div>
 <% end %>

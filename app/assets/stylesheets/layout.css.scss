@@ -8,6 +8,11 @@ a
     text-decoration: none;
 }
 
+#mainLogo
+{
+    color: black;
+}
+
 a.linkBorder:link, a.linkBorder:visited
 {
     color: black;
@@ -50,7 +55,7 @@ h2
     font-size: 30px;
 }
 
-h3
+h3, .submitLabel
 {
     font-size: 18px;
 }
@@ -299,11 +304,12 @@ p
 {
     padding-left: 150px;
     display: inline-block;
-    width: 500px;
     vertical-align: top;
+    width: 500px;
 }
 
-.attendButton {
+.attendButton
+{
     -moz-box-shadow:inset 0px 1px 0px 0px #949494;
     -webkit-box-shadow:inset 0px 1px 0px 0px #949494;
     box-shadow:inset 0px 1px 0px 0px #949494;
@@ -323,17 +329,18 @@ p
     padding:6px 24px;
     text-decoration:none;
 }
-.attendButton:hover {
+.attendButton:hover
+{
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #242424), color-stop(1, #4f4f4f) );
     background:-moz-linear-gradient( center top, #242424 5%, #4f4f4f 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#242424', endColorstr='#4f4f4f');
     background-color:#242424;
 }
-.attendButton:active {
+.attendButton:active
+{
     position:relative;
     top:1px;
 }
-
 
 .attendees
 {
@@ -365,21 +372,35 @@ p
     padding: 8px 0;
 }
 
-#blackshield:hover
+   /* need a wrapper, because if :hover is applied
+      to image directly, odd behavior can occur since
+      the image shrinks */
+#blackshield
 {
-    -webkit-transform:rotateY(30deg);
-}
-
-/* event info page */
-
-#eventHeader
-{
-    text-align: center;
-}
-
-#centeredLogo
-{
+    width: 16px;
     margin: 0 auto;
+}
+
+#blackshieldImg
+{
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+#blackshield:hover #blackshieldImg
+{
+    -webkit-transform:rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3slinear;
 }
 
 /*  clearfix  */
