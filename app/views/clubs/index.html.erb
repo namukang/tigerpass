@@ -50,10 +50,10 @@
       </div>
       <div class="attendees">
         <% attending = @user.attending? event %>
-        <a <%= if not attending then "style='display:none'" end %> id="<%= event.id %>" class="attendLink attend<%= event.id %>" href="#">
+        <a <%= if attending then "style='display:none'" end %> id="<%= event.id %>" class="attendLink attend<%= event.id %>" href="#">
           <div class="attendButton">I'll be there!</div>
         </a>
-        <h3 <%= if attending then "style='display:none'" end %> style="display: inline" class="unattend<%= event.id %>">You are attending!
+        <h3 <%= if not attending then "style='display:none'" end %> style="display: inline" class="unattend<%= event.id %>">You are attending!
           (<a id="<%= event.id %>" class="unattendLink linkBorder" href="#">Undo</a>)
         </h3>
         <h2 style="visibility:hidden; display: inline">.</h2>
