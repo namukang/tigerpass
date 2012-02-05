@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery  
-  
+  protect_from_forgery
+
   protected
-  
+
   def confirm_fb_auth
     if session[:access_expiry]
       if session[:access_expiry] <= Time.now
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
       else
         session[:ready_to_auth] = true
         flash[:notice] = "It looks like you haven't used Tigerpass before. We'll need to authenticate that you are a Princeton undergraduate student."
-        redirect_to "/ugauth"        
+        redirect_to "/ugauth"
         return false
       end
     else
@@ -58,10 +58,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def confirm_club_admin(clubid)    
+  def confirm_club_admin(clubid)
     if confirm_user == false
       return false
-    end    
+    end
     user = User.where(fb_id: session[:user_id])
     clubname = Club.find(clubid)['long_name']
     if user['admin_id'] != clubid or super_admin_netid(user['netid']) == false

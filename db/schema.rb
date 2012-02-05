@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(:version => 20120202164347) do
   end
 
   create_table "events_users", :id => false, :force => true do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
   add_index "events_users", ["event_id"], :name => "index_events_users_on_event_id"
