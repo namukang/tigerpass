@@ -24,14 +24,14 @@ class ClubsController < ApplicationController
       @fb_user = @graph.get_object("me")["id"]
       @fb_id = @fb_user['id']
       @user = User.where(fb_id: @fb_id)
-     if @user.empty?
+      if @user.empty?
         if /\A[a-z]{1,8}@princeton.edu\z/.match @fb_user['email']
           # User.create()
           # redirect_to "/dat_ass" and return
         else
           # redirect_to "/dat_ass_2" and return
         end
-     end
+      end
     end
 
     # Show all the clubs and events
