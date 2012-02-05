@@ -84,7 +84,7 @@ $(function() {
       type: "POST"
     });
     $('.attend' + event_id).hide();
-    $('.unattend' + event_id).show().css('display', 'inline');
+    $('.unattend' + event_id).show(1000).css('display', 'inline');
   });
   $('.unattendLink').click(function (e) {
     e.preventDefault();
