@@ -83,4 +83,11 @@ $(function() {
       type: "POST"
     });
   });
+  $('.unattendLink').click(function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: "/unattend/" + $(this).attr('id'),
+      type: "POST"
+    });
+  });
 });
