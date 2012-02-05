@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   include ActiveModel::Validations
   validates_with DateValidator
 
-  validates :club_id, presence: true, inclusion: { in: 0..10 }
+  validates :club_id, presence: true, inclusion: { in: 1..11 }
   validates :start_time, presence: true
   validates :date, presence: true
   validates :title, length: { in: 3..100 }, allow_blank: true
