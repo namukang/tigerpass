@@ -18,6 +18,8 @@ class ClubsController < ApplicationController
       @days << days_of_week[(cur_day + i) % 7]
     end
 
+    # TODO: Uncomment when user_id available
+    # @user = User.find_by_fb_id(session[:user_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clubs }

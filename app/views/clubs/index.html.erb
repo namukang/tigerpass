@@ -50,7 +50,12 @@
       </div>
       <div class="attendees">
         <a id="<%= event.id %>" class="attendLink" href="#">
+          <!-- TODO: Uncomment when :user_id available -->
+          <% # if not @user.attending? event %>
           <div class="attendButton">I'll be there</div>
+          <% # else %>
+            <!-- <div class="attendButton">I'm attending</div> -->
+          <% # end %>
           <h2 style="visibility:hidden; display: inline">.</h2>
         </a>
         <h3 style="visibility:hidden">.</h3>

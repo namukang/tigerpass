@@ -80,9 +80,7 @@ $(function() {
     e.preventDefault();
     $.ajax({
       url: "/attend/" + $(this).attr('id'),
-      success: function(data) {
-        console.log(data);
-      }
+      type: "POST"
     });
   });
 });

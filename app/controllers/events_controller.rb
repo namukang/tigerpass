@@ -15,7 +15,9 @@ class EventsController < ApplicationController
     # TODO: Uncomment when :user_id session variable available
     # event = Event.find(params[:event_id])
     # user = User.find_by_fb_id(session[:user_id])
-    # user.events << event
+    # if not user.attending? event
+    #   user.events << event
+    # end
     render nothing: true
   end
 
