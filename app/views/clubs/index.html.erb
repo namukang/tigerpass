@@ -42,8 +42,8 @@
         <h2><span><%= event.title %></span></h2>
         <h3><%= event.club.short_name %></h3>
         <h3><%= event.date.strftime("%A the #{event.date.mday.ordinalize}") %></h3>
-        <h3><%= event.start_time.in_time_zone.strftime("%l:%M%p") %> -
-            <%= event.end_time.in_time_zone.strftime("%l:%M%p") %></h3>
+        <h3><%= event.start_time.strftime("%l:%M%p") %> -
+            <%= event.end_time.strftime("%l:%M%p") %></h3>
         <h3><%= event.access %></h3>
         <br>
         <p><%= event.description %></p>
