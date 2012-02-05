@@ -34,15 +34,25 @@ class ApplicationController < ActionController::Base
       return true
     end
     graph = Koala::Facebook::API.new(session[:access_token])
-    fb_user = graph.get_object("me")["id"]
-    fb_id = fb_user['id']
+    fb_user = graph.get_object("me")
+    fb_id = fb_user['id'].to_i
     fb_email = fb_user['email']
     user = User.where(fb_id: fb_id)
     if user.empty?
       if /\A[a-z]{1,8}@princeton.edu\z/.match(fb_email)
+        new_netid = fb_email.split('@').first
+        new_auth = Auth.where(netid: new_netid)
+        if new_auth.empty?
+          redirect_to "/ugonly" and return
+        end
         session[:ug_authenticated] = true
-        session[:new_netid] = fb_email.split('@').first
+        session[:new_netid] = new_netid
         session[:new_fb_id] = fb_id
+        if new_auth.first.admin_id
+          session[:new_admin_id] = new_auth.first.admin_id
+        end
+        new_auth.first.code = "authenticatedviafbemail"
+        new_auth.first.save
         flash[:notice] = "It looks like you haven't used Tigerpass before. You'll need to create a user profile so we can get started."
         redirect_to "/newuser"
         return false # halts the before_filter
@@ -62,13 +72,21 @@ class ApplicationController < ActionController::Base
     if confirm_user == false
       return false
     end
-    user = User.where(fb_id: session[:user_id])
+    if session[:admin_id] == clubid or session[:super_admin] == true
+      return true
+    end
+    user = User.where(fb_id: session[:user_id]).first
+    if super_admin_netid(user.netid) == true
+      session[:super_admin] = true
+      return true
+    end
     clubname = Club.find(clubid)['long_name']
-    if user['admin_id'] != clubid or super_admin_netid(user['netid']) == false
+    if user.admin_id != clubid
       flash[:notice] = "You must be an officer of #{clubname} to access this page."
       redirect_to "/denied"
       return false # halts the before_filter
     else
+      session[:admin_id] = user.admin_id
       return true
     end
   end
@@ -77,12 +95,16 @@ class ApplicationController < ActionController::Base
     if confirm_user == false
       return false
     end
-    user = User.where(fb_id: session[:user_id])
-    if super_admin_netid(user['netid']) == false
+    if session[:super_admin] == true
+      return true
+    end
+    user = User.where(fb_id: session[:user_id]).first
+    if super_admin_netid(user.netid) == false
       flash[:notice] = "This page is accessible only to site administrators. Please contact us if you believe you are seeing this message in error."
       redirect_to "/denied"
       return false # halts the before_filter
     else
+      session[:super_admin] = true
       return true
     end
   end

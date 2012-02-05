@@ -1,0 +1,7 @@
+<div id="netid">
+  <%= form_tag("/sendauth", :method => "get") do %>
+    <%= label_tag(:email_netid, "enter netid:") %>
+    <%= text_field_tag(:email_netid) %>
+    <%= submit_tag("email me!") %>
+  <% end %>
+</div>

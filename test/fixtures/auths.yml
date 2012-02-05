@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  netid: MyString
+  admin_id: 1
+  fb_id: 1
+  code: MyString
+
+two:
+  netid: MyString
+  admin_id: 1
+  fb_id: 1
+  code: MyString

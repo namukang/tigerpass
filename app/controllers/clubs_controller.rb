@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
+  before_filter :confirm_user, only: [:index]
   before_filter :get_club, :only=>[:show]
-  before_filter :confirm_fb_auth, except: []
 
   def get_club
     @club = Club.find_by_permalink! params[:id]

@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   belongs_to :club_as_admin, class_name: "Club", foreign_key: "admin_id"
   has_and_belongs_to_many :events
 
-  attr_accessible :netid, :fb_id, :year, :club_id
+  attr_accessible :year, :club_id
 
   validates :fb_id, presence: true, uniqueness: true
   validates :year, presence: true, inclusion: { in: 2012..2015 }

@@ -50,3 +50,6 @@ Club.create(short_name: 'Charter',
             long_name: 'Charter Club',
             logo: 'charter.png',
             permalink: 'charter')
+Auth.create(netid: 'jasnyder')
+Auth.create(netid: 'dskang')
+Auth.create(netid: 'jconeill')

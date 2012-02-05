@@ -9,6 +9,9 @@ Tigerpass::Application.routes.draw do
   match 'newuser', to: 'access#newuser'
   match 'ugauth', to: 'access#auth'
   match 'denied', to: 'access#denied'
+  match 'ugonly', to: 'access#ugonly'
+  match 'sendauth', to: 'access#sendauthemail'
+  match 'createuser', to: 'access#finishuser'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
