@@ -90,15 +90,18 @@ class AccessController < ApplicationController
       redirect_to "/denied" and return
     end
     getnetid = params[:email_netid]
+    # for non-whitelist auth
+    authuser = Auth.create(netid: getnetid)
+    # for whitelist auth
     authuser = Auth.where(netid: getnetid)
-    if authuser.empty?
-      redirect_to "/ugonly" and return
-    end
-    if authuser.first.code
-      redirect_to "/ugonly" and return # should instead tell the user
+    # if authuser.empty?
+    #  redirect_to "/ugonly" and return
+    # end
+    # if authuser.first.code
+    #  redirect_to "/ugonly" and return # should instead tell the user
       # that a code has already been sent and offer them a chance to
       # resend unless authuser.first.code == "authenticatedviafbemail"
-    end
+    # end
     email_dest = getnetid.to_s + "@princeton.edu"
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
     random = ""
